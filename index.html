@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="BootStrap_Document/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <style>
+      .error-message{
+        color: red;
+      }
+      .error-border {
+      border: 2px solid red;
+    }
+    .font{
+        font-size: 50px;
+    }
+    .fa-solid{
+        font-size: 100px;
+    }
+    .icon-container {
+            position: relative;
+            width: 150px;
+            height: 150px;
+        }
+        .icon-envelope {
+            font-size: 120px;
+            color: #FFA500; /* Orange for envelope */
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        .icon-plane {
+            font-size: 70px;
+            color: #007bff; /* Blue for paper plane */
+            position: absolute;
+            right: 15px;
+            bottom: 4px;
+        }
+        /*  end icon */
+        .chat-container {
+            position: relative;
+            width: 120px;
+            height: 120px;
+        }
+        .icon-bubble-large {
+            font-size: 100px;
+            color: #007bff; /* Blue for the large bubble */
+            position: absolute;
+            top: 10px;
+            left: 20px;
+        }
+        .icon-bubble-small {
+            font-size: 80px;
+            color: #449dfc; /* Lighter blue for the smaller bubble */
+            position: absolute;
+            top: -20px;
+            left: -30px;
+            z-index: -1;
+        }
+        /*  */
+        .chat-bubble {
+            font-size: 100px;
+            background: linear-gradient(135deg, #00c6ff, #0072ff); /* Gradient color */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body>
+
+    
+    <div class="mt-5 p-5">
+    <form id="studentform" class="row  needs-validation"  novalidate>
+        <div class="col-md-4">
+            <label  class="form-label">Auto</label>
+            <input type="text" id="autoindex" disabled class="form-control">
+        </div>
+        <div class="col-md-4">
+            <label  class="form-label">First Name </label>
+            <input type="text" class="form-control" id="firstname" required>
+            <span id="firstname-error" class="error-message"></span>
+        </div>
+        <div class="col-md-4">
+            <label class="form-label">LastName </label>
+            <input type="text" class="form-control" id="lastname" required>
+            <div class="invalid-feedback"></div>
+            <span id="lastname-error" class="error-message"></span>
+
+        </div>
+         <div class="col-md-4">
+            <label  class="form-label">Gmail</label>
+            <input type="email" class="form-control" id="gmail" required >
+            <div class="invalid-feedback">Please enter your gmail</div>
+            <span id="gmail-error" class="error-message"></span>
+        </div>
+        <div class="col-md-4">
+            <label  class="form-label">Password</label>
+            <input type="password" class="form-control" id="password" required >
+            <div class="invalid-feedback">Please enter your password</div>
+            <span id="password-error" class="error-message"></span>
+        </div>
+        
+      <div class="mt-2">
+        <button class="btn btn-primary" type="submit" id="btnsubmit">Submit</button>
+        <button class="btn btn-secondary" type="button" id="btnsave" style="display: none;">Save</button>
+      </div>
+    </form>
+  </div>
+
+
+    <!-- End  -->
+
+   
+            <table class="table table-responsive">
+                <thead class="thead-light">
+                    <tr>
+                        <th>#</th>
+                        <th>Firstname</th>
+                        <th>Lastname</th>
+                        <th>Gmail</th>
+                        <th>Password</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="displaydata">
+                    <!-- display here! -->
+                </tbody>
+            </table>
+    <label  class="form-label">Color picker</label>
+    <input type="color" class="form-control form-control-color" id="colorpicker" value="#563d7c" title="Choose your color">
+    <div class="container">
+
+        <!-- Modal Structure -->
+        <div class="modal fade" id="userModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">User Form</h5>
+                        <button type="button" class="btn btn-close border-0 btn-light close-button" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="userForm">
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email </label>
+                                <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Password</label>
+                                <input type="password" class="form-control" id="password" placeholder="Enter your password" required>
+                            </div>
+                            <div class="text-end">
+                                <button type="button" id="Bntclear" class="btn btn-danger">Cancel</button>
+                                <button type="submit" class="btn btn-primary">Save</button>
+                            </div>
+                            
+                            
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Trigger Button -->
+        <div class="text-end">
+            <button type="button" class="btn btn-primary mt-3 dialog" data-bs-toggle="modal" data-bs-target="#userModal">
+                Open Form
+            </button>
+        </div>
+</body>
+</html>
+<script src="script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>  <!-- for dialog model -->

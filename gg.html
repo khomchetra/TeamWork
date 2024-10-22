@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Example with jQuery</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+
+<h1>Fetch User Data</h1>
+<button id="getUserBtn">Get User Data</button>
+<div id="userData"></div>
+
+<script>
+$(document).ready(function(){
+    $('#getUserBtn').click(function(){
+        // API endpoint
+        var apiUrl = 'https://jsonplaceholder.typicode.com/users/1';
+
+        // Using jQuery to make a GET request
+        $.ajax({
+            url: apiUrl,
+            method: 'GET',
+            success: function(data) {
+                // Display the returned user data in the HTML
+                $('#userData').html(`
+                    <p><strong>Name:</strong> ${data.name}</p>
+                    <p><strong>Email:</strong> ${data.email}</p>
+                    <p><strong>Phone:</strong> ${data.phone}</p>
+                    <p><strong>Website:</strong> ${data.website}</p>
+                `);
+            },
+            error: function(error) {
+                console.log('Error:', error);
+                $('#userData').html('<p>Error fetching data.</p>');
+            }
+        });
+    });
+});
+</script>
+
+</body>
+</html>
