@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded" , function () {
     var lastname = document.getElementById("lastname").value.trim();
     var gmail = document.getElementById("gmail").value.trim();
     var password = document.getElementById("password").value.trim();
+    var address = document.getElementById("Address").value.trim();
   
     if (validateform()) {
      
@@ -19,6 +20,7 @@ document.addEventListener("DOMContentLoaded" , function () {
         lastname: lastname,
         gmail: gmail,
         password: password,
+        address : address
       };
       addata(student); // Ensure addata is defined elsewhere
       console.log(student);
@@ -45,6 +47,7 @@ document.addEventListener("DOMContentLoaded" , function () {
         <td> ${items.lastname} </td>
         <td> ${items.gmail} </td>
         <td> ${items.password} </td>
+        <td> ${items.address}</td>
         <td> 
          <button class="btn btn-primary" id="btnedit-${index}"> Edit </button>
          <button class="btn btn-danger" id="btndelete-${index}"> Delete </button> 
@@ -117,6 +120,7 @@ function enableAllButtons() {
     document.getElementById("lastname").value = objectstudent.lastname;
     document.getElementById("gmail").value = objectstudent.gmail;
     document.getElementById("password").value = objectstudent.password;
+    document.getElementById("Address").value = objectstudent.address;
     Currentindex = index; // specified index in array 
     document.getElementById('btnsubmit').style.display = 'none';
     document.getElementById('btnsave').style.display = 'inline-block';
@@ -135,7 +139,8 @@ function enableAllButtons() {
         firstname: document.getElementById("firstname").value,
         lastname: document.getElementById("lastname").value,
         gmail: document.getElementById("gmail").value,
-        password: document.getElementById("password").value
+        password: document.getElementById("password").value,
+        address : document.getElementById("Address").value
       };
 
     // Reset Currentindex and toggle button visibility
@@ -168,6 +173,7 @@ function enableAllButtons() {
     document.getElementById("lastname").value = "";
     document.getElementById("gmail").value = "";
     document.getElementById("password").value = "";
+    document.getElementById("Address").value = "";
     Currentindex = -1;
   }
  
